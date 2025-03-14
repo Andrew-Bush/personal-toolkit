@@ -1,23 +1,68 @@
-# Project Name
 
-## Description
+# Full Stack Dashboard Application
 
-A brief description of your project and its features.
+A modern full-stack dashboard application built with React, TypeScript, Express, and Supabase authentication.
+
+## Features
+
+- Authentication with email-based OTP
+- Interactive dashboard with customizable tiles
+- Notes management
+- Task tracking
+- Pace calculator
+- Real-time updates with Vite HMR
 
 ## Prerequisites
 
-Make sure you have the following installed:
+- Node.js (v20 or newer)
+- npm (included with Node.js)
+- A Supabase account and project for authentication
 
-- [Node.js](https://nodejs.org/) (v20 or newer)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-- [Vite](https://vitejs.dev/) (make sure to install it globally if needed)
+## Environment Variables
 
-## Setup Instructions
+Create a `.env` file in the root directory with:
 
-Follow these steps to set up the project locally:
+```env
+DATABASE_URL=your_database_url
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-1. **Clone the Repository:**
+## Installation
 
+1. Clone the repository
+2. Install dependencies:
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   npm install
+   ```
+
+## Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be accessible at:
+- Frontend: `http://0.0.0.0:5000`
+- API: `http://0.0.0.0:5000/api`
+
+## Project Structure
+
+```
+├── client/          # Frontend React application
+├── server/          # Express backend server
+├── shared/          # Shared types and schemas
+└── package.json     # Project configuration
+```
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+## License
+
+MIT
