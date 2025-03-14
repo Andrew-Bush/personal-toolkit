@@ -1,15 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { type Tile as TileType } from "@shared/schema";
 import { Tile } from "./tile";
-import { Notes } from "@/pages/notes";
-import { Weather } from "@/pages/weather";
-import { Tasks } from "@/pages/tasks";
-
-const TileComponents: Record<string, React.ComponentType> = {
-  notes: Notes,
-  weather: Weather,
-  tasks: Tasks,
-};
+import { Link } from "wouter";
 
 export function Grid() {
   const { data: tiles, isLoading } = useQuery<TileType[]>({
@@ -18,8 +10,8 @@ export function Grid() {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {[...Array(3)].map((_, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        {[...Array(2)].map((_, i) => (
           <div key={i} className="h-64 bg-muted animate-pulse rounded-lg" />
         ))}
       </div>
@@ -31,17 +23,18 @@ export function Grid() {
   const sortedTiles = [...tiles].sort((a, b) => a.position - b.position);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {sortedTiles.map((tile) => {
-        const Component = TileComponents[tile.type];
-        return (
-          <div key={tile.id} className="h-64">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+      {sortedTiles.map((tile) => (
+        <Link key={tile.id} href={`/${tile.type}`}>
+          <a className="h-64 block">
             <Tile tile={tile}>
-              <Component />
+              <div className="flex items-center justify-center h-full">
+                <p className="text-lg text-muted-foreground">Click to view {tile.type}</p>
+              </div>
             </Tile>
-          </div>
-        );
-      })}
+          </a>
+        </Link>
+      ))}
     </div>
   );
 }

@@ -28,12 +28,11 @@ export class MemStorage implements IStorage {
   constructor() {
     this.tiles = new Map([
       [1, { id: 1, type: 'notes', position: 0, settings: {} }],
-      [2, { id: 2, type: 'weather', position: 1, settings: {} }],
-      [3, { id: 3, type: 'tasks', position: 2, settings: {} }]
+      [2, { id: 2, type: 'tasks', position: 1, settings: {} }]
     ]);
     this.notes = new Map();
     this.tasks = new Map();
-    this.currentIds = { tiles: 4, notes: 1, tasks: 1 };
+    this.currentIds = { tiles: 3, notes: 1, tasks: 1 };
   }
 
   // Tiles
