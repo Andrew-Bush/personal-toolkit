@@ -6,6 +6,7 @@ import Dashboard from "@/pages/dashboard";
 import NotFound from "@/pages/not-found";
 import { Notes } from "@/pages/notes";
 import { Tasks } from "@/pages/tasks";
+import { PaceCalculator } from "@/pages/paceCalculator";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
       <Route path="/" component={Dashboard} />
       <Route path="/notes" component={Notes} />
       <Route path="/tasks" component={Tasks} />
+      <Route path="/paceCalculator" component={PaceCalculator} />
       <Route component={NotFound} />
     </Switch>
   );

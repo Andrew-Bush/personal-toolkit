@@ -4,7 +4,7 @@ import { z } from "zod";
 
 export const tiles = pgTable("tiles", {
   id: serial("id").primaryKey(),
-  type: text("type").notNull(), // 'notes', 'weather', 'tasks'
+  type: text("type").notNull(), // 'notes', 'weather', 'tasks', 'paceCalculator'
   position: integer("position").notNull(),
   settings: jsonb("settings").notNull().$type<Record<string, unknown>>(),
 });
