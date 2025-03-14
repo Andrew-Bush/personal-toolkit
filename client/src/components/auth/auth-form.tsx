@@ -14,10 +14,13 @@ export function AuthForm() {
     e.preventDefault();
     try {
       setLoading(true);
+      // Get the current URL origin, which will be the Replit URL in production
+      const redirectTo = `${window.location.origin}/`; 
+
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: window.location.origin,
+          emailRedirectTo: redirectTo,
         },
       });
 
