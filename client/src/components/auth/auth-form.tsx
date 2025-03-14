@@ -21,6 +21,7 @@ export function AuthForm() {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
+          
           emailRedirectTo: redirectTo,
         },
       });
