@@ -7,6 +7,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
+    console.log('Protected route state:', { loading, user });
     if (!loading && !user) {
       setLocation('/login');
     }
