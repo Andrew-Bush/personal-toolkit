@@ -10,10 +10,7 @@ interface TileProps {
 export function Tile({ tile, children }: TileProps) {
   return (
     <Card className="h-full">
-      <CardHeader className="cursor-move">
-        <CardTitle className="text-lg capitalize">{tile.type}</CardTitle>
-      </CardHeader>
-      <CardContent>
+      <CardContent className="flex items-center justify-center h-full">
         <ErrorBoundary>
           {children}
         </ErrorBoundary>

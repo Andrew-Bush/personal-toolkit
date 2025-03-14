@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto mt-12 px-4">
         <Grid />
       </div>
     </div>
